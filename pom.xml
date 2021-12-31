@@ -14,34 +14,21 @@
         <module>conf-db</module>
     </modules>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.2</version>
+    </parent>
+
 
     <properties>
         <java.version>11</java.version>
         <lombok.version>1.18.4</lombok.version>
-        <junit-jupiter.version>5.7.0</junit-jupiter.version>
-        <maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
-        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <assertj-core.version>3.19.0</assertj-core.version>
-        <mockito-core.version>3.8.0</mockito-core.version>
-        <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
-        <mockito-junit-jupiter.version>2.23.0</mockito-junit-jupiter.version>
         <restrict-imports-enforcer-rule.version>1.1.0</restrict-imports-enforcer-rule.version>
         <cargo-maven3-plugin.version>1.9.3</cargo-maven3-plugin.version>
-        <rest-assured.version>4.3.3</rest-assured.version>
-        <spring-webmvc.version>5.3.4</spring-webmvc.version>
-        <jackson-databind.version>2.12.1</jackson-databind.version>
-        <hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
-        <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
         <mapstruct.version>1.4.1.Final</mapstruct.version>
-        <ojdbc8.version>12.2.0.1</ojdbc8.version>
-        <HikariCP.version>3.4.5</HikariCP.version>
-        <jackson-core.version>2.12.3</jackson-core.version>
-        <dbunit.version>2.5.2</dbunit.version>
+        <dbunit.version>2.5.4</dbunit.version>
         <spring-test-dbunit.version>1.3.0</spring-test-dbunit.version>
-        <hibernate-core.version>5.6.3.Final</hibernate-core.version>
-        <spring-data-jpa.version>2.6.0</spring-data-jpa.version>
     </properties>
 
 
@@ -51,42 +38,6 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-                <version>${javax.servlet-api.version}</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter</artifactId>
-                <version>${junit-jupiter.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.assertj</groupId>
-                <artifactId>assertj-core</artifactId>
-                <version>${assertj-core.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-core</artifactId>
-                <version>${mockito-core.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-junit-jupiter</artifactId>
-                <version>${mockito-junit-jupiter.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>io.rest-assured</groupId>
-                <artifactId>rest-assured</artifactId>
-                <version>${rest-assured.version}</version>
-                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.dbunit</groupId>
@@ -101,56 +52,10 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-webmvc</artifactId>
-                <version>${spring-webmvc.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-core</artifactId>
-                <version>${hibernate-core.version}</version>
-                <scope>compile</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-jpa</artifactId>
-                <version>${spring-data-jpa.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${jackson-databind.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-                <version>${jackson-core.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.datatype</groupId>
-                <artifactId>jackson-datatype-jsr310</artifactId>
-                <version>${jackson-databind.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.hibernate.validator</groupId>
-                <artifactId>hibernate-validator</artifactId>
-                <version>${hibernate-validator.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct</artifactId>
                 <version>${mapstruct.version}</version>
                 <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.zaxxer</groupId>
-                <artifactId>HikariCP</artifactId>
-                <version>${HikariCP.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.oracle.database.jdbc</groupId>
-                <artifactId>ojdbc8</artifactId>
-                <version>${ojdbc8.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -231,41 +136,6 @@
                                     <banDuplicatePomDependencyVersions/>
                                 </rules>
                             </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.cargo</groupId>
-                    <artifactId>cargo-maven3-plugin</artifactId>
-                    <version>${cargo-maven3-plugin.version}</version>
-                    <configuration>
-                        <container>
-                            <containerId>tomcat9x</containerId>
-                            <type>embedded</type>
-                            <systemProperties>
-                                <spring.profiles.active>test</spring.profiles.active>
-                            </systemProperties>
-                        </container>
-                        <configuration>
-                            <properties>
-                                <cargo.servlet.port>8080</cargo.servlet.port>
-                            </properties>
-                        </configuration>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>start-server</id>
-                            <phase>pre-integration-test</phase>
-                            <goals>
-                                <goal>start</goal>
-                            </goals>
-                        </execution>
-                        <execution>
-                            <id>stop-server</id>
-                            <phase>post-integration-test</phase>
-                            <goals>
-                                <goal>stop</goal>
-                            </goals>
                         </execution>
                     </executions>
                 </plugin>

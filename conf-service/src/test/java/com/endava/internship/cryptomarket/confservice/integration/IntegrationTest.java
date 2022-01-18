@@ -1,18 +1,22 @@
 package com.endava.internship.cryptomarket.confservice.integration;
 
-import java.io.InputStream;
-import java.util.Properties;
-
-import javax.sql.DataSource;
-
+import com.endava.internship.cryptomarket.confservice.application.ConfServiceApplication;
+import com.endava.internship.cryptomarket.confservice.application.ConfServiceConfig;
+import lombok.SneakyThrows;
+import oracle.jdbc.pool.OracleDataSource;
 import org.dbunit.DataSourceBasedDBTestCase;
 import org.dbunit.dataset.DataSetException;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 
-import lombok.SneakyThrows;
-import oracle.jdbc.pool.OracleDataSource;
+import javax.sql.DataSource;
+import java.io.InputStream;
+import java.util.Properties;
 
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@ContextConfiguration(classes = ConfServiceApplication.class)
 public abstract class IntegrationTest extends DataSourceBasedDBTestCase {
 
     private final static String FILENAME = "/testData.xml";

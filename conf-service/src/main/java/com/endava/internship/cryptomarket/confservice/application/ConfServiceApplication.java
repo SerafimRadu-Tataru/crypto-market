@@ -1,25 +1,12 @@
 package com.endava.internship.cryptomarket.confservice.application;
 
-import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-public class ConfServiceApplication extends AbstractAnnotationConfigDispatcherServletInitializer {
+@SpringBootApplication
+public class ConfServiceApplication {
 
-    @Override
-    protected Class<?>[] getRootConfigClasses() {
-        return null;
-    }
-
-    @Override
-    protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{
-                ConfServiceConfig.class
-        };
-    }
-
-    @Override
-    protected String[] getServletMappings() {
-        return new String[]{
-                "/"
-        };
+    public static void main(String[] args) {
+        SpringApplication.run(ConfServiceApplication.class, args);
     }
 }
